@@ -66,6 +66,8 @@ class Network(object):
             else:
                 print "Epoch {0} complete".format(j)
 
+        #print self.weights, self.biases
+
     def update_mini_batch(self, mini_batch, eta):
         """Update the network's weights and biases by applying
         gradient descent using backpropagation to a single mini batch.
@@ -124,6 +126,8 @@ class Network(object):
         neuron in the final layer has the highest activation."""
         test_results = [(np.argmax(self.feedforward(x)), y)
                         for (x, y) in test_data]
+        #for x,y in test_results:
+        #   print x, y
         return sum(int(x == y) for (x, y) in test_results)
 
     def cost_derivative(self, output_activations, y):
